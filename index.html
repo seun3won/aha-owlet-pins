@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aha Owlet — Pin Assets</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --bg:#1E243C; --fg:#F5F2EA; --accent:#E8A87C; }
+  *{box-sizing:border-box}
+  body{margin:0;padding:48px 24px;background:var(--bg);color:var(--fg);
+       font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
+  header{max-width:1100px;margin:0 auto 40px}
+  h1{margin:0 0 8px;font-size:28px}
+  p{margin:0;color:#B9C0D4;font-size:15px}
+  code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:4px;font-size:13px}
+  .grid{max-width:1100px;margin:0 auto;display:grid;
+        grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
+  figure{margin:0}
+  img{width:100%;display:block;border-radius:10px;background:#000}
+  figcaption{margin-top:8px;font-size:12px;color:#8E96AE;word-break:break-all}
+</style>
+</head>
+<body>
+<header>
+  <h1>Aha Owlet — Pin Assets</h1>
+  <p>Image hosting for our own marketing pins. Direct URL pattern:
+     <code>https://seun3won.github.io/aha-owlet-pins/&lt;filename&gt;</code></p>
+</header>
+<div class="grid" id="grid"></div>
+<script>
+  const files = [
+    "01-tantrum-cheat-sheet.png","02-serve-and-return-cheat-sheet.png",
+    "03-newborn-tears.png","04-newborn-vision.png","05-baby-bones.png",
+    "06-black-and-white.png","07-wrong-cup.png","08-sing-song-voice.png",
+    "09-paying-your-kid.png","10-big-baby-eyes.png","11-copying-faces.png",
+    "12-unfinished-things.png","13-play-tracker.png","14-baby-planner.png",
+    "15-adhd-planner.png"
+  ];
+  document.getElementById("grid").innerHTML = files.map(f =>
+    `<figure><img src="${f}" alt="${f}" loading="lazy"><figcaption>${f}</figcaption></figure>`
+  ).join("");
+</script>
+</body>
+</html>
