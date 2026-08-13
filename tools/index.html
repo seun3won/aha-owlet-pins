@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Tools for Parents — Aha Owlet</title>
+<meta name="description" content="Small free tools for parents. No signup, no app, nothing saved to a server. Wake window calculator and more.">
+<meta property="og:title" content="Free Tools for Parents — Aha Owlet">
+<meta property="og:description" content="Small free tools for parents. No signup, no app, nothing saved to a server.">
+<style>
+  :root{--bg:#1E243C;--card:#262D48;--fg:#F5F2EA;--muted:#9AA3BF;--accent:#E8A87C;--line:#39415F}
+  *{box-sizing:border-box}
+  body{margin:0;padding:40px 16px 64px;background:var(--bg);color:var(--fg);
+       font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+  .wrap{max-width:620px;margin:0 auto}
+  h1{font-size:28px;margin:0 0 8px;line-height:1.25}
+  .sub{color:var(--muted);margin:0 0 32px}
+  a.tool{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;
+         padding:20px;margin-bottom:16px;text-decoration:none;color:inherit}
+  a.tool h2{margin:0 0 6px;font-size:19px;color:var(--accent)}
+  a.tool p{margin:0;color:var(--muted);font-size:15px}
+  .soon{opacity:.45}
+  footer{margin-top:32px;text-align:center;font-size:14px;color:var(--muted)}
+  footer a{color:var(--accent);text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Free tools for parents</h1>
+  <p class="sub">Small, single-purpose, and free. No signup, no app to install, nothing sent to a server.</p>
+
+  <a class="tool" href="wake-windows/">
+    <h2>Wake Window Calculator</h2>
+    <p>Enter your baby's age and last wake-up time to see the typical window before the next nap.</p>
+  </a>
+
+  <div class="tool soon">
+    <h2>Feeding &amp; Diaper Log</h2>
+    <p>Coming soon — a one-day printable log you can fill in as you go.</p>
+  </div>
+
+  <div class="tool soon">
+    <h2>Milestone Checker</h2>
+    <p>Coming soon — what most babies are doing month by month.</p>
+  </div>
+
+  <footer>
+    Free printables and guides:<br>
+    <a id="hub" href="#" target="_blank" rel="noopener">beacons.ai/ahaowlet</a>
+  </footer>
+</div>
+<script>
+document.getElementById("hub").href =
+  "https://beacons.ai/ahaowlet?utm_source=tool&utm_medium=web&utm_campaign=toolsindex";
+</script>
+</body>
+</html>

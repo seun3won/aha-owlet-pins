@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /tools/
+Disallow: /*.png$
+
+Sitemap: https://seun3won.github.io/aha-owlet-pins/sitemap.xml

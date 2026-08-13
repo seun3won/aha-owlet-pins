@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wake Window Calculator — When Should My Baby Nap Next?</title>
+<meta name="description" content="Free wake window calculator. Enter your baby's age and last wake-up time to see the typical window before the next nap. No signup, works offline.">
+<meta property="og:title" content="Wake Window Calculator — When Should My Baby Nap Next?">
+<meta property="og:description" content="Enter age and last wake-up time. See the typical wake window before the next nap. Free, no signup.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#1E243C; --card:#262D48; --fg:#F5F2EA; --muted:#9AA3BF;
+    --accent:#E8A87C; --sage:#7D8F74; --line:#39415F;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:24px 16px 64px; background:var(--bg); color:var(--fg);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    line-height:1.55; -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:560px;margin:0 auto}
+  header{text-align:center;margin-bottom:28px}
+  h1{font-size:26px;margin:0 0 8px;line-height:1.25}
+  .sub{color:var(--muted);font-size:15px;margin:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:18px}
+  label{display:block;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  select,input[type=time]{
+    width:100%;padding:14px;font-size:17px;border-radius:10px;
+    border:1px solid var(--line);background:#1A2036;color:var(--fg);
+    font-family:inherit;
+  }
+  .row{margin-bottom:18px}
+  .row:last-child{margin-bottom:0}
+  button{
+    width:100%;padding:16px;font-size:17px;font-weight:700;border:0;border-radius:12px;
+    background:var(--accent);color:#1E243C;cursor:pointer;font-family:inherit;
+  }
+  button:active{transform:translateY(1px)}
+  #result{display:none}
+  .big{font-size:34px;font-weight:800;letter-spacing:-.5px;margin:6px 0 2px}
+  .win{color:var(--accent)}
+  .hint{color:var(--muted);font-size:14px;margin:0}
+  .bar{height:8px;background:#1A2036;border-radius:99px;overflow:hidden;margin:16px 0 6px}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--accent));width:0;transition:width .5s}
+  .barlabel{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+  .note{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:16px}
+  footer{text-align:center;margin-top:28px;font-size:13px;color:var(--muted)}
+  footer a{color:var(--accent);text-decoration:none;font-weight:600}
+  .disc{font-size:12px;color:#7C8399;margin-top:18px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>When should my baby nap next?</h1>
+    <p class="sub">Enter age and last wake-up time. Nothing is saved to a server.</p>
+  </header>
+
+  <div class="card">
+    <div class="row">
+      <label for="age">Baby's age</label>
+      <select id="age"></select>
+    </div>
+    <div class="row">
+      <label for="woke">Last woke up at</label>
+      <input type="time" id="woke">
+    </div>
+    <button id="go">Show next nap window</button>
+  </div>
+
+  <div class="card" id="result">
+    <p class="hint">Typical next nap window</p>
+    <div class="big win" id="range">—</div>
+    <p class="hint" id="wwtext"></p>
+
+    <div class="bar"><i id="fill"></i></div>
+    <div class="barlabel"><span id="elapsed">—</span><span id="until">—</span></div>
+
+    <p class="note" id="advice"></p>
+  </div>
+
+  <footer>
+    More free tools and one-page guides for parents:<br>
+    <a id="hub" href="#" target="_blank" rel="noopener">beacons.ai/ahaowlet</a>
+  </footer>
+
+  <p class="disc">
+    Wake windows are a rule of thumb, not a schedule. The ranges here are the ones commonly used by
+    parents and sleep guides — they are not a clinical standard, and healthy babies vary widely.
+    Watch your baby, not the clock. This page is general information, not medical advice; talk to your
+    pediatrician about your child's sleep.
+  </p>
+
+</div>
+
+<script>
+// 연령별 wake window (분). 널리 통용되는 범위이며 임상 기준이 아님 — 면책 문구에 명시.
+const WW = [
+  {label:"0–1 month",       lo:45,  hi:60},
+  {label:"1–2 months",      lo:60,  hi:90},
+  {label:"2–3 months",      lo:75,  hi:120},
+  {label:"3–4 months",      lo:90,  hi:120},
+  {label:"4–5 months",      lo:120, hi:150},
+  {label:"5–6 months",      lo:135, hi:165},
+  {label:"6–8 months",      lo:150, hi:210},
+  {label:"9–12 months",     lo:180, hi:240},
+  {label:"12–18 months",    lo:240, hi:360},
+  {label:"18–24 months",    lo:300, hi:360},
+  {label:"2–3 years",       lo:300, hi:420}
+];
+
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2,"0");
+const fmt = d => {
+  let h = d.getHours(), m = d.getMinutes(), ap = h >= 12 ? "PM" : "AM";
+  h = h % 12 || 12;
+  return h + ":" + pad(m) + " " + ap;
+};
+const dur = mins => {
+  const h = Math.floor(mins/60), m = mins%60;
+  return (h ? h + "h " : "") + (m ? m + "m" : (h ? "" : "0m"));
+};
+
+// UTM — 성장팀 계측 규칙(헌장 4-2)
+$("hub").href = "https://beacons.ai/ahaowlet?utm_source=tool&utm_medium=web&utm_campaign=wakewindows";
+
+// 연령 옵션
+WW.forEach((w,i) => {
+  const o = document.createElement("option");
+  o.value = i; o.textContent = w.label;
+  $("age").appendChild(o);
+});
+
+// 저장된 값 복원 (없으면 기본값)
+const saved = localStorage.getItem("ww_age");
+$("age").value = saved !== null ? saved : 4;
+const now = new Date();
+$("woke").value = pad(now.getHours()) + ":" + pad(now.getMinutes());
+
+function calc(){
+  const w = WW[+$("age").value];
+  localStorage.setItem("ww_age", $("age").value);
+
+  const v = $("woke").value;
+  if(!v) return;
+  const [hh,mm] = v.split(":").map(Number);
+
+  const woke = new Date();
+  woke.setHours(hh, mm, 0, 0);
+  // 미래 시각이면 어제로 간주
+  if (woke > new Date()) woke.setDate(woke.getDate() - 1);
+
+  const lo = new Date(woke.getTime() + w.lo*60000);
+  const hi = new Date(woke.getTime() + w.hi*60000);
+
+  $("range").textContent = fmt(lo) + " – " + fmt(hi);
+  $("wwtext").textContent = "Wake window for " + w.label + ": " + dur(w.lo) + " to " + dur(w.hi) + " awake.";
+
+  const mins = Math.max(0, Math.round((Date.now() - woke.getTime())/60000));
+  const pct = Math.max(0, Math.min(100, mins / w.hi * 100));
+  $("fill").style.width = pct + "%";
+  $("elapsed").textContent = "Awake " + dur(mins);
+
+  let advice, left = w.lo - mins;
+  if (mins < w.lo){
+    $("until").textContent = dur(left) + " to window";
+    advice = "Still early. Most babies this age can stay up a bit longer — watch for eye rubbing, staring, or a sudden drop in babbling.";
+  } else if (mins <= w.hi){
+    $("until").textContent = "In the window now";
+    advice = "You're inside the typical window. If sleepy cues are showing, this is usually the easiest time to start the nap.";
+  } else {
+    $("until").textContent = dur(mins - w.hi) + " past";
+    advice = "Past the typical window. Overtiredness often looks like a second wind — more active, not less. A shorter, calmer wind-down tends to help more than waiting.";
+  }
+  $("advice").textContent = advice;
+  $("result").style.display = "block";
+}
+
+$("go").addEventListener("click", calc);
+$("age").addEventListener("change", () => { if($("result").style.display === "block") calc(); });
+$("woke").addEventListener("change", () => { if($("result").style.display === "block") calc(); });
+</script>
+</body>
+</html>
