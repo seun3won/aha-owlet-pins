@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://seun3won.github.io/aha-owlet-pins/tools/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://seun3won.github.io/aha-owlet-pins/tools/wake-windows/</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/tools/</loc><lastmod>2026-08-14</lastmod><priority>0.8</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/tools/wake-windows/</loc><lastmod>2026-08-14</lastmod><priority>1.0</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/tantrum-cheat-sheet/</loc><lastmod>2026-08-14</lastmod><priority>0.9</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/serve-and-return/</loc><lastmod>2026-08-14</lastmod><priority>0.9</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/newborn-tears/</loc><lastmod>2026-08-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/newborn-vision/</loc><lastmod>2026-08-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/baby-bones/</loc><lastmod>2026-08-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/black-and-white/</loc><lastmod>2026-08-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/wrong-cup/</loc><lastmod>2026-08-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/sing-song-voice/</loc><lastmod>2026-08-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/paying-your-kid/</loc><lastmod>2026-08-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/big-baby-eyes/</loc><lastmod>2026-08-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/copying-faces/</loc><lastmod>2026-08-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/unfinished-things/</loc><lastmod>2026-08-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/play-tracker/</loc><lastmod>2026-08-14</lastmod><priority>0.6</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/baby-planner/</loc><lastmod>2026-08-14</lastmod><priority>0.6</priority></url>
+  <url><loc>https://seun3won.github.io/aha-owlet-pins/p/adhd-planner/</loc><lastmod>2026-08-14</lastmod><priority>0.6</priority></url>
 </urlset>

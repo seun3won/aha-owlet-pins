@@ -48,7 +48,22 @@ Pinterest 실험 #1용 핀 15장(1000×1500). 제목·설명·링크·보드는 
 - 03~12 육아과학 팁 (검색 유입)
 - 13~15 유료 노션 템플릿 (퍼널 하단)
 
+## 2026-08-14 확장 — 이미지 창고 → 회사 웹 배포 게이트웨이
+
+이 저장소는 이제 이미지뿐 아니라 **무료 웹툴 라인**도 서비스한다.
+
+```
+/tools/                    툴 목록 페이지
+/tools/wake-windows/       1호 Wake Window Calculator
+/robots.txt                /tools/ 색인 허용, PNG 차단
+/sitemap.xml               툴 URL 목록
+```
+
+**신규 툴 배포 절차**: `tools/<이름>/index.html` 작성 → `sitemap.xml`에 URL 추가 → `tools/index.html` 카드 교체 → `push.bat` → 라이브 확인 → **Search Console에서 색인 생성 요청 1회**.
+
 ## 주의
 
+- ⛔ **`google2f27ab670c9d7c73.html`을 절대 삭제하지 않는다.** Google Search Console 소유권 확인 파일이며, 지우면 소유권이 해제돼 검색 실적 데이터가 끊긴다.
+- 툴 페이지에서 Beacons 링크는 **JS로 만들지 말고 href에 직접 박는다.** JS로 넣으면 크롤러에 빈 링크로 보이고, JS가 실패하면 퍼널이 끊긴다(08-14 실제 발생, 수정 완료).
 - 이 저장소는 **Public**이다. 미공개 자산·개인정보·자격증명을 절대 넣지 않는다.
 - 생성기는 `../tools/make_pins.py`. 핀을 고치려면 원본 스크립트를 고치고 다시 생성한 뒤 이 폴더에 복사한다.
