@@ -55,14 +55,18 @@ Pinterest 실험 #1용 핀 15장(1000×1500). 제목·설명·링크·보드는 
 ```
 /tools/                    툴 목록 페이지
 /tools/wake-windows/       1호 Wake Window Calculator
-/robots.txt                /tools/ 색인 허용, PNG 차단
-/sitemap.xml               툴 URL 목록
+/p/<slug>/                 Pinterest 핀별 랜딩 페이지 15개
+/robots.txt                전체 허용 (아래 주의 참고)
+/sitemap.xml               전 페이지 URL 목록
 ```
+
+**`/p/` 가 왜 있나**: Pinterest는 Save-from-URL 핀의 제목·설명을 **목적지 페이지의 og 메타에서 가져오고, 게시 후에는 편집을 막는다**(2026-08-14 실측). 그래서 핀마다 우리가 통제하는 페이지를 두고 그 메타가 곧 핀 메타가 되게 한다. 생성기는 `../tools/make_pin_pages.py`.
 
 **신규 툴 배포 절차**: `tools/<이름>/index.html` 작성 → `sitemap.xml`에 URL 추가 → `tools/index.html` 카드 교체 → `push.bat` → 라이브 확인 → **Search Console에서 색인 생성 요청 1회**.
 
 ## 주의
 
+- ⛔ **robots.txt에 이미지 차단 규칙을 넣지 않는다.** 08-14에 `Disallow: /*.png$`를 넣었다가 **Pinterest 스크레이퍼가 이미지를 못 가져와** 핀 생성이 전부 실패했다(`upstream r…`). 원복 후 정상 동작 확인.
 - ⛔ **`google2f27ab670c9d7c73.html`을 절대 삭제하지 않는다.** Google Search Console 소유권 확인 파일이며, 지우면 소유권이 해제돼 검색 실적 데이터가 끊긴다.
 - 툴 페이지에서 Beacons 링크는 **JS로 만들지 말고 href에 직접 박는다.** JS로 넣으면 크롤러에 빈 링크로 보이고, JS가 실패하면 퍼널이 끊긴다(08-14 실제 발생, 수정 완료).
 - 이 저장소는 **Public**이다. 미공개 자산·개인정보·자격증명을 절대 넣지 않는다.

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baby Feeding &amp; Diaper Log — Free, Printable, One Day at a Time</title>
+<meta name="description" content="A free baby feeding and diaper log you can fill in on your phone or print blank. Track feeds, wet and dirty nappies, and sleep for one day. No signup, nothing saved to a server.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Baby Feeding &amp; Diaper Log — Free, Printable">
+<meta property="og:description" content="Track feeds, nappies and sleep for one day. Fill it in on your phone or print it blank. Free, no signup.">
+<link rel="canonical" href="https://seun3won.github.io/aha-owlet-pins/tools/feeding-log/">
+<style>
+  :root{--bg:#1E243C;--card:#262D48;--fg:#F5F2EA;--muted:#9AA3BF;--accent:#E8A87C;--sage:#7D8F74;--line:#39415F}
+  *{box-sizing:border-box}
+  body{margin:0;padding:24px 16px 64px;background:var(--bg);color:var(--fg);
+       font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;-webkit-text-size-adjust:100%}
+  .wrap{max-width:640px;margin:0 auto}
+  header{text-align:center;margin-bottom:24px}
+  h1{font-size:26px;margin:0 0 8px;line-height:1.25}
+  .sub{color:var(--muted);font-size:15px;margin:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}
+  label{display:block;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  input,select{width:100%;padding:12px;font-size:16px;border-radius:10px;border:1px solid var(--line);
+               background:#1A2036;color:var(--fg);font-family:inherit}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  .grid3{display:grid;grid-template-columns:1fr 1.2fr;gap:12px;margin-bottom:12px}
+  button{width:100%;padding:14px;font-size:16px;font-weight:700;border:0;border-radius:12px;
+         background:var(--accent);color:#1E243C;cursor:pointer;font-family:inherit}
+  button.ghost{background:transparent;color:var(--accent);border:1px solid var(--line);font-weight:600}
+  button:active{transform:translateY(1px)}
+  .row{display:flex;gap:10px;margin-top:10px}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th{text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);
+     font-weight:600;padding:0 0 8px;border-bottom:1px solid var(--line)}
+  td{padding:11px 0;border-bottom:1px solid rgba(57,65,95,.5);vertical-align:top}
+  td.t{white-space:nowrap;color:var(--accent);font-variant-numeric:tabular-nums;width:78px}
+  td.k{white-space:nowrap;width:88px}
+  td.x{width:28px;text-align:right}
+  .del{background:none;border:0;color:var(--muted);font-size:18px;cursor:pointer;padding:0 2px;width:auto}
+  .totals{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .chip{background:#1A2036;border:1px solid var(--line);border-radius:99px;padding:7px 13px;font-size:13px;color:var(--muted)}
+  .chip b{color:var(--fg)}
+  .empty{color:var(--muted);font-size:15px;text-align:center;padding:18px 0}
+  h2{font-size:15px;margin:0 0 12px;color:var(--muted);letter-spacing:.03em;text-transform:uppercase}
+  footer{text-align:center;margin-top:28px;font-size:14px;color:var(--muted)}
+  footer a{color:var(--accent);text-decoration:none;font-weight:600}
+  .disc{font-size:12px;color:#7C8399;margin-top:18px;line-height:1.5}
+  .printhead{display:none}
+  @media print{
+    body{background:#fff;color:#000;padding:0}
+    .noprint{display:none !important}
+    .card{background:#fff;border:1px solid #999;border-radius:0;page-break-inside:avoid}
+    .printhead{display:block;margin-bottom:14px}
+    h1{color:#000} .sub,.chip,th,td.t{color:#000}
+    .chip{border-color:#999;background:#fff}
+    td{border-bottom:1px solid #ccc}
+    .blank td{height:30px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="noprint">
+    <h1>Feeding &amp; diaper log</h1>
+    <p class="sub">One day at a time. Fill it in here, or print it blank and use a pen.</p>
+  </header>
+
+  <div class="printhead">
+    <h1 style="font-size:22px;margin:0 0 4px">Feeding &amp; Diaper Log</h1>
+    <p class="sub" id="printdate" style="font-size:14px"></p>
+  </div>
+
+  <div class="card noprint">
+    <div class="grid3">
+      <div>
+        <label for="time">Time</label>
+        <input type="time" id="time">
+      </div>
+      <div>
+        <label for="kind">What happened</label>
+        <select id="kind">
+          <option value="Feed">Feed</option>
+          <option value="Wet">Wet nappy</option>
+          <option value="Dirty">Dirty nappy</option>
+          <option value="Sleep">Sleep started</option>
+          <option value="Woke">Woke up</option>
+          <option value="Note">Note</option>
+        </select>
+      </div>
+    </div>
+    <div style="margin-bottom:12px">
+      <label for="detail">Detail (optional)</label>
+      <input type="text" id="detail" placeholder="e.g. left side 12 min / 120ml / fussy">
+    </div>
+    <button id="add">Add to today's log</button>
+  </div>
+
+  <div class="card">
+    <h2 class="noprint">Today</h2>
+    <div id="totals" class="totals noprint"></div>
+    <table style="margin-top:14px">
+      <thead><tr><th>Time</th><th>What</th><th>Detail</th><th class="noprint"></th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="empty" id="empty">Nothing logged yet today.</p>
+  </div>
+
+  <div class="row noprint">
+    <button class="ghost" id="print">Print this log</button>
+    <button class="ghost" id="blank">Print a blank sheet</button>
+  </div>
+  <div class="row noprint">
+    <button class="ghost" id="clear">Clear today</button>
+  </div>
+
+  <footer class="noprint">
+    <a href="../">← More free tools for parents</a><br><br>
+    Free printables and one-page guides:<br>
+    <a href="https://beacons.ai/ahaowlet?utm_source=tool&amp;utm_medium=web&amp;utm_campaign=feedinglog" target="_blank" rel="noopener">beacons.ai/ahaowlet</a>
+  </footer>
+
+  <p class="disc noprint">
+    This is a place to write things down, not a medical record. Feeding amounts, nappy counts and sleep
+    vary widely between healthy babies, and this page does not tell you what is normal for yours.
+    If you are worried about feeding, weight gain, or wet nappies, talk to your pediatrician or midwife
+    rather than to a log. Nothing you type here is sent anywhere — it stays on this device.
+  </p>
+
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2,"0");
+const today = () => { const d=new Date(); return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); };
+const KEY = "feedlog_" + today();
+
+const LABEL = {Feed:"Feed", Wet:"Wet nappy", Dirty:"Dirty nappy", Sleep:"Sleep started", Woke:"Woke up", Note:"Note"};
+
+let log = [];
+try { log = JSON.parse(localStorage.getItem(KEY) || "[]"); } catch(e) { log = []; }
+
+const now = new Date();
+$("time").value = pad(now.getHours()) + ":" + pad(now.getMinutes());
+$("printdate").textContent = new Date().toDateString();
+
+function fmt(t){
+  const [h,m] = t.split(":").map(Number);
+  const ap = h >= 12 ? "PM" : "AM";
+  return (h % 12 || 12) + ":" + pad(m) + " " + ap;
+}
+
+function save(){ localStorage.setItem(KEY, JSON.stringify(log)); }
+
+function render(blank){
+  const tb = $("rows");
+  tb.innerHTML = "";
+  if (blank){
+    for (let i=0;i<18;i++){
+      const tr = document.createElement("tr");
+      tr.className = "blank";
+      tr.innerHTML = "<td class='t'>&nbsp;</td><td class='k'>&nbsp;</td><td>&nbsp;</td>";
+      tb.appendChild(tr);
+    }
+    $("empty").style.display = "none";
+    return;
+  }
+  log.sort((a,b) => a.time.localeCompare(b.time));
+  log.forEach((e,i) => {
+    const tr = document.createElement("tr");
+    const td1 = document.createElement("td"); td1.className="t"; td1.textContent = fmt(e.time);
+    const td2 = document.createElement("td"); td2.className="k"; td2.textContent = LABEL[e.kind] || e.kind;
+    const td3 = document.createElement("td"); td3.textContent = e.detail || "";
+    const td4 = document.createElement("td"); td4.className="x noprint";
+    const b = document.createElement("button"); b.className="del"; b.textContent="×";
+    b.setAttribute("aria-label","Remove entry");
+    b.onclick = () => { log.splice(i,1); save(); render(false); };
+    td4.appendChild(b);
+    tr.append(td1,td2,td3,td4);
+    tb.appendChild(tr);
+  });
+  $("empty").style.display = log.length ? "none" : "block";
+
+  const c = k => log.filter(e => e.kind === k).length;
+  $("totals").innerHTML =
+    "<span class='chip'>Feeds <b>"+c("Feed")+"</b></span>" +
+    "<span class='chip'>Wet <b>"+c("Wet")+"</b></span>" +
+    "<span class='chip'>Dirty <b>"+c("Dirty")+"</b></span>" +
+    "<span class='chip'>Naps started <b>"+c("Sleep")+"</b></span>";
+}
+
+$("add").addEventListener("click", () => {
+  const t = $("time").value;
+  if (!t) return;
+  log.push({ time: t, kind: $("kind").value, detail: $("detail").value.trim() });
+  $("detail").value = "";
+  const n = new Date();
+  $("time").value = pad(n.getHours()) + ":" + pad(n.getMinutes());
+  save(); render(false);
+});
+
+$("detail").addEventListener("keydown", e => { if (e.key === "Enter") $("add").click(); });
+
+$("print").addEventListener("click", () => { render(false); window.print(); });
+$("blank").addEventListener("click", () => { render(true); window.print(); setTimeout(()=>render(false), 500); });
+$("clear").addEventListener("click", () => {
+  if (!log.length) return;
+  log = []; save(); render(false);
+});
+
+render(false);
+</script>
+</body>
+</html>
