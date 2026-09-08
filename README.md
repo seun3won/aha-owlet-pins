@@ -22,7 +22,7 @@
 2. 이 폴더의 **`push.bat` 더블클릭**
 3. 끝. (Pages 활성화는 비서팀장이 브라우저로 처리)
 
-> 자격증명은 사장 PC의 git에 이미 저장돼 있다(blastrix·lumina·math-board 푸시 이력). 비서팀장은 토큰·비밀번호를 다루지 않는다 — 회사 규칙이자 Claude 운영원칙.
+> 자격증명은 사장 PC의 git에 이미 저장돼 있다(blastrix·mirrorlark·math-board 푸시 이력). 비서팀장은 토큰·비밀번호를 다루지 않는다 — 회사 규칙이자 Claude 운영원칙.
 
 ## 이후 운영 (반복)
 
