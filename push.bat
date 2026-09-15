@@ -29,15 +29,25 @@ if not exist ".git" (
 )
 
 echo.
-echo [3/5] stage files
+echo [3/6] stage files
 git add -A
 
 echo.
-echo [4/5] commit
+echo [4/6] commit
 git commit -m "pins batch" || echo      nothing to commit
 
 echo.
-echo [5/5] push
+echo [5/6] sync with remote (rebase)
+REM  2026-09-08: pushes were silently rejected for weeks because this
+REM  clone was 1 commit behind origin (the 08-18 noindex fix was pushed
+REM  from another clone and never pulled here). The old PUSHFAIL message
+REM  blamed "repo missing / not signed in", which hid the real cause.
+git fetch origin
+git rebase origin/main
+if errorlevel 1 goto REBASEFAIL
+
+echo.
+echo [6/6] push
 git push -u origin main
 if errorlevel 1 goto PUSHFAIL
 
@@ -54,12 +64,24 @@ echo.
 echo  ERROR: git is not installed or not on PATH.
 goto END
 
+:REBASEFAIL
+echo.
+echo ===========================================================
+echo  REBASE FAILED - local and remote history conflict.
+echo  Do NOT force push. Resolve the conflict first:
+echo    git status        (see conflicted files)
+echo    git rebase --abort   (to undo and ask for help)
+echo ===========================================================
+goto END
+
 :PUSHFAIL
 echo.
 echo ===========================================================
-echo  PUSH FAILED - most likely one of:
-echo   1) repo "aha-owlet-pins" does not exist yet on GitHub
+echo  PUSH FAILED - check in this order:
+echo   1) rejected / non-fast-forward  -^> remote moved ahead.
+echo      step [5/6] should have handled it; read its output.
 echo   2) not signed in to GitHub in this machine's git
+echo   3) repo "aha-owlet-pins" does not exist yet on GitHub
 echo  Fix the above and run this file again.
 echo ===========================================================
 
