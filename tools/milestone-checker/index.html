@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baby Milestones by Month — Free Checklist (2 Months to 3 Years, CDC List)</title>
+<meta name="description" content="Free baby milestone checklist by month, 2 months to 3 years, using the CDC milestone list. Tick what your child does, print it for the next checkup. No signup.">
+<link rel="canonical" href="https://seun3won.github.io/aha-owlet-pins/tools/milestone-checker/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aha Owlet Tools">
+<meta property="og:title" content="Baby Milestones by Month — Free Printable Checklist">
+<meta property="og:description" content="The CDC milestone list from 2 months to 3 years. Tick, save on your phone, print for the checkup.">
+<meta property="og:url" content="https://seun3won.github.io/aha-owlet-pins/tools/milestone-checker/">
+<meta property="og:image" content="https://seun3won.github.io/aha-owlet-pins/tools/milestone-checker/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1E243C">
+<style>
+  :root{--bg:#1E243C;--card:#262D48;--fg:#F5F2EA;--muted:#9AA3BF;--accent:#E8A87C;--sage:#7D8F74;--line:#39415F;--field:#1A2036;--ok:#9BC59D;--warn:#E8C27C}
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;padding:24px 16px 64px;background:var(--bg);color:var(--fg);
+       font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;overflow-wrap:break-word}
+  .wrap{max-width:640px;margin:0 auto}
+  header{text-align:center;margin-bottom:24px}
+  h1{font-size:26px;margin:0 0 8px;line-height:1.25}
+  h2{font-size:15px;margin:0 0 12px;color:var(--muted);letter-spacing:.03em;text-transform:uppercase}
+  h3{font-size:17px;margin:0 0 6px}
+  .sub{color:var(--muted);font-size:15px;margin:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}
+  label{display:block;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  input,select,textarea{width:100%;max-width:100%;padding:12px;font-size:16px;border-radius:10px;border:1px solid var(--line);
+               background:var(--field);color:var(--fg);font-family:inherit}
+  input[type=checkbox]{width:22px;height:22px;padding:0;margin:0;accent-color:var(--accent);flex:0 0 22px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  .grid>div{min-width:0}
+  .field{margin-bottom:12px}
+  button{width:100%;padding:14px;font-size:16px;font-weight:700;border:0;border-radius:12px;
+         background:var(--accent);color:#1E243C;cursor:pointer;font-family:inherit}
+  button.ghost{background:transparent;color:var(--accent);border:1px solid var(--line);font-weight:600}
+  button.small{width:auto;padding:8px 12px;font-size:14px}
+  button:active{transform:translateY(1px)}
+  .row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+  .row>button{flex:1 1 140px}
+  .big{font-size:30px;font-weight:800;letter-spacing:-.5px;margin:4px 0 2px;color:var(--accent)}
+  .hint{color:var(--muted);font-size:14px;margin:0}
+  .note{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .chip{background:var(--field);border:1px solid var(--line);border-radius:99px;padding:6px 12px;font-size:13px;color:var(--muted)}
+  .chip b{color:var(--fg)}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th{text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);
+     font-weight:600;padding:0 6px 8px 0;border-bottom:1px solid var(--line)}
+  td{padding:10px 6px 10px 0;border-bottom:1px solid rgba(57,65,95,.6);vertical-align:top}
+  .tag{display:inline-block;font-size:12px;border-radius:99px;padding:2px 9px;border:1px solid var(--line);white-space:nowrap}
+  .tag.now{color:#1E243C;background:var(--accent);border-color:var(--accent)}
+  .tag.past{color:var(--fg)}
+  .tag.soon{color:var(--muted)}
+  .check{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid rgba(57,65,95,.6)}
+  .check:last-child{border-bottom:0}
+  .check span{flex:1;min-width:0}
+  .bar{height:8px;background:var(--field);border-radius:99px;overflow:hidden;margin:10px 0 4px}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--accent));width:0;transition:width .4s}
+  .hidden{display:none}
+  .related{font-size:14px;color:var(--muted);text-align:center;margin-top:20px}
+  .related a{color:var(--accent);text-decoration:none}
+  footer{text-align:center;margin-top:24px;font-size:14px;color:var(--muted)}
+  footer a{color:var(--accent);text-decoration:none;font-weight:600}
+  .src{font-size:12px;color:#8D94AB;margin-top:22px;line-height:1.55}
+  .src a{color:#B9BFD3}
+  .src ul{margin:6px 0 0;padding-left:18px}
+  .disc{font-size:12px;color:#8D94AB;margin-top:14px;line-height:1.5}
+  .printonly{display:none}
+  @media print{
+    body{background:#fff;color:#000;padding:0}
+    .noprint{display:none !important}
+    .printonly{display:block}
+    .card{background:#fff;border:1px solid #999;border-radius:0;page-break-inside:avoid;color:#000}
+    h1,h2,h3,.big{color:#000} .sub,.hint,.chip,th,.note{color:#000}
+    .chip{border-color:#999;background:#fff}
+    td{border-bottom:1px solid #bbb}
+    .src,.disc{color:#333}
+    .src a{color:#000}
+    .tag{color:#000 !important;background:#fff !important;border-color:#666 !important}
+    a{color:#000}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+
+  <header class="noprint">
+    <h1>Baby milestones by month</h1>
+    <p class="sub">The CDC list of what most children do by each age, 2 months to 3 years. Ticks stay on this device only.</p>
+  </header>
+
+  <div class="printonly">
+    <h1 style="font-size:22px;margin:0 0 4px">Milestone checklist — <span id="pAge"></span></h1>
+    <p class="sub" id="pDate"></p>
+  </div>
+
+  <div class="card noprint">
+    <div class="grid">
+      <div>
+        <label for="age">Checklist age</label>
+        <select id="age"></select>
+      </div>
+      <div>
+        <label for="dob">Or birth date</label>
+        <input type="date" id="dob">
+      </div>
+    </div>
+    <p class="hint" id="ageMsg">Born early? Use the <a href="../adjusted-age-calculator/" style="color:var(--accent)">adjusted age calculator</a> first — for the first two years, milestones are usually compared with corrected age.</p>
+  </div>
+
+  <div class="card">
+    <h2 id="listTitle">By 2 months</h2>
+    <div class="bar noprint"><i id="fill"></i></div>
+    <p class="hint noprint" id="count"></p>
+    <div id="list"></div>
+    <p class="note" id="talk">If your child is not doing one or more of these, has lost skills they once had, or you have any concern, mention it to your child's doctor — you do not need to wait for the next visit. Children develop at their own pace; this list is a conversation starter, not a test.</p>
+  </div>
+
+  <div class="row noprint">
+    <button class="ghost" id="print">Print this checklist</button>
+    <button class="ghost" id="clear">Clear ticks for this age</button>
+  </div>
+
+
+  <p class="related noprint">Related free tools: <a href="../adjusted-age-calculator/">Adjusted Age Calculator</a> &middot; <a href="../teething-chart/">Teething Chart</a> &middot; <a href="../wake-windows/">Wake Window Calculator</a></p>
+
+  <footer class="noprint">
+    <a href="../">&larr; More free tools for parents</a> &middot; <a href="../../p/">Parenting answers</a><br><br>
+    Free printables and one-page guides:<br>
+    <a href="https://beacons.ai/ahaowlet?utm_source=tool&amp;utm_medium=web&amp;utm_campaign=milestones" target="_blank" rel="noopener">beacons.ai/ahaowlet</a>
+  </footer>
+
+  <div class="src">
+    <b>Where the numbers come from</b>
+    <ul><li><a href="https://www.cdc.gov/act-early/milestones/index.html" target="_blank" rel="noopener">CDC — Learn the Signs. Act Early. Developmental Milestones (list used on this page)</a></li><li><a href="https://www.cdc.gov/act-early/media/pdfs/2025/10/cdc-milestone-checklists-ltsae-english-508.pdf" target="_blank" rel="noopener">CDC — Milestone checklists (printable PDF)</a></li><li><a href="https://www.healthychildren.org/English/ages-stages/baby/preemie/Pages/Corrected-Age-For-Preemies.aspx" target="_blank" rel="noopener">AAP / HealthyChildren.org — Corrected Age for Preemies</a></li></ul>
+  </div>
+
+  <p class="disc">Milestone wording follows the CDC list (U.S. public-domain material), lightly edited to gender-neutral wording. The CDC notes its milestone materials are not a substitute for standardized developmental screening. This page does not assess, score or diagnose your child. It is general information, not medical advice — talk to your pediatrician about your child's development.</p>
+
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const store = {
+  get(k){ try { return localStorage.getItem(k); } catch(e) { return null; } },
+  set(k,v){ try { localStorage.setItem(k,v); } catch(e) {} },
+  del(k){ try { localStorage.removeItem(k); } catch(e) {} }
+};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const D = [{"key": "2-months", "m": 2, "label": "2 months", "groups": {"Social": ["Calms down when spoken to or picked up", "Looks at your face", "Seems happy to see you when you walk up to them", "Smiles when you talk to or smile at them"], "Language": ["Makes sounds other than crying", "Reacts to loud sounds"], "Cognitive": ["Watches you as you move", "Looks at a toy for several seconds"], "Movement": ["Holds head up when on tummy", "Moves both arms and both legs", "Opens hands briefly"]}}, {"key": "4-months", "m": 4, "label": "4 months", "groups": {"Social": ["Smiles on their own to get your attention", "Chuckles (not yet a full laugh) when you try to make them laugh", "Looks at you, moves, or makes sounds to get or keep your attention"], "Language": ["Makes sounds like “oooo”, “aahh” (cooing)", "Makes sounds back when you talk to them", "Turns head towards the sound of your voice"], "Cognitive": ["If hungry, opens mouth when they see breast or bottle", "Looks at their hands with interest"], "Movement": ["Holds head steady without support when you are holding them", "Holds a toy when you put it in their hand", "Uses their arm to swing at toys", "Brings hands to mouth", "Pushes up onto elbows/forearms when on tummy"]}}, {"key": "6-months", "m": 6, "label": "6 months", "groups": {"Social": ["Knows familiar people", "Likes to look at self in a mirror", "Laughs"], "Language": ["Takes turns making sounds with you", "Blows “raspberries” (sticks tongue out and blows)", "Makes squealing noises"], "Cognitive": ["Puts things in their mouth to explore them", "Reaches to grab a toy they want", "Closes lips to show they don’t want more food"], "Movement": ["Rolls from tummy to back", "Pushes up with straight arms when on tummy", "Leans on hands to support themselves when sitting"]}}, {"key": "9-months", "m": 9, "label": "9 months", "groups": {"Social": ["Is shy, clingy, or fearful around strangers", "Shows several facial expressions, like happy, sad, angry, and surprised", "Looks when you call their name", "Reacts when you leave (looks, reaches for you, or cries)", "Smiles or laughs when you play peek-a-boo"], "Language": ["Makes a lot of different sounds like “mamamama” and “bababababa”", "Lifts arms up to be picked up"], "Cognitive": ["Looks for objects when dropped out of sight (like their spoon or toy)", "Bangs two things together"], "Movement": ["Gets to a sitting position by themselves", "Moves things from one hand to their other hand", "Uses fingers to “rake” food towards themselves", "Sits without support"]}}, {"key": "1-year", "m": 12, "label": "12 months", "groups": {"Social": ["Plays games with you, like pat-a-cake"], "Language": ["Waves “bye-bye”", "Calls a parent “mama” or “dada” or another special name", "Understands “no” (pauses briefly or stops when you say it)"], "Cognitive": ["Puts something in a container, like a block in a cup", "Looks for things they see you hide, like a toy under a blanket"], "Movement": ["Pulls up to stand", "Walks, holding on to furniture", "Drinks from a cup without a lid, as you hold it", "Picks things up between thumb and pointer finger, like small bits of food"]}}, {"key": "15-months", "m": 15, "label": "15 months", "groups": {"Social": ["Copies other children while playing, like taking toys out of a container when another child does", "Shows you an object they like", "Claps when excited", "Hugs stuffed doll or other toy", "Shows you affection (hugs, cuddles, or kisses you)"], "Language": ["Tries to say one or two words besides “mama” or “dada,” like “ba” for ball or “da” for dog", "Looks at a familiar object when you name it", "Follows directions given with both a gesture and words. For example, your child gives you a toy when you hold out your hand and say, “Give me the toy.”", "Points to ask for something or to get help"], "Cognitive": ["Tries to use things the right way, like a phone, cup, or book", "Stacks at least two small objects, like blocks"], "Movement": ["Takes a few steps on their own", "Uses fingers to feed themselves some food"]}}, {"key": "18-months", "m": 18, "label": "18 months", "groups": {"Social": ["Moves away from you, but looks to make sure you are close by", "Points to show you something interesting", "Puts hands out for you to wash them", "Looks at a few pages in a book with you", "Helps you dress them by pushing arm through sleeve or lifting up foot"], "Language": ["Tries to say three or more words besides “mama” or “dada”", "Follows one-step directions without any gestures, like giving you the toy when you say, “Give it to me.”"], "Cognitive": ["Copies you doing chores, like sweeping with a broom", "Plays with toys in a simple way, like pushing a toy car"], "Movement": ["Walks without holding on to anyone or anything", "Scribbles", "Drinks from a cup without a lid and may spill sometimes", "Feeds themselves with their fingers", "Tries to use a spoon", "Climbs on and off a couch or chair without help"]}}, {"key": "2-years", "m": 24, "label": "2 years", "groups": {"Social": ["Notices when others are hurt or upset, like pausing or looking sad when someone is crying", "Looks at your face to see how to react in a new situation"], "Language": ["Points to things in a book when you ask, like “Where is the bear?”", "Says at least two words together, like “More milk.”", "Points to at least two body parts when you ask them to show you", "Uses more gestures than just waving and pointing, like blowing a kiss or nodding yes"], "Cognitive": ["Holds something in one hand while using the other hand; for example, holding a container and taking the lid off", "Tries to use switches, knobs, or buttons on a toy", "Plays with more than one toy at the same time, like putting toy food on a toy plate"], "Movement": ["Kicks a ball", "Runs", "Walks (not climbs) up a few stairs with or without help", "Eats with a spoon"]}}, {"key": "30-months", "m": 30, "label": "30 months", "groups": {"Social": ["Plays next to other children and sometimes plays with them", "Shows you what they can do by saying, “Look at me!”", "Follows simple routines when told, like helping to pick up toys when you say, “It’s clean-up time.”"], "Language": ["Says about 50 words", "Says two or more words together, with one action word, like “Doggie run”", "Names things in a book when you point and ask, “What is this?”", "Says words like “I,” “me,” or “we”"], "Cognitive": ["Uses things to pretend, like feeding a block to a doll as if it were food", "Shows simple problem-solving skills, like standing on a small stool to reach something", "Follows two-step instructions like “Put the toy down and close the door.”", "Shows they know at least one color, like pointing to a red crayon when you ask, “Which one is red?”"], "Movement": ["Uses hands to twist things, like turning doorknobs or unscrewing lids", "Takes some clothes off by themselves, like loose pants or an open jacket", "Jumps off the ground with both feet", "Turns book pages, one at a time, when you read to them"]}}, {"key": "3-years", "m": 36, "label": "3 years", "groups": {"Social": ["Calms down within 10 minutes after you leave them, like at a childcare drop off", "Notices other children and joins them to play"], "Language": ["Talks with you in conversation using at least two back-and-forth exchanges", "Asks “who,” “what,” “where,” or “why” questions, like “Where is mommy/daddy?”", "Says what action is happening in a picture or book when asked, like “running,” “eating,” or “playing”", "Says first name, when asked", "Talks well enough for others to understand, most of the time"], "Cognitive": ["Draws a circle, when you show them how", "Avoids touching hot objects, like a stove, when you warn them"], "Movement": ["Strings items together, like large beads or macaroni", "Puts on some clothes by themselves, like loose pants or a jacket", "Uses a fork"]}}];
+
+const sel = $("age");
+D.forEach((a,i) => { const o = document.createElement("option"); o.value = i; o.textContent = a.label; sel.appendChild(o); });
+
+function monthsBetween(dob, now){
+  let m = (now.getFullYear()-dob.getFullYear())*12 + (now.getMonth()-dob.getMonth());
+  if (now.getDate() < dob.getDate()) m -= 1;
+  return m;
+}
+function pickIndex(months){
+  let idx = 0;
+  D.forEach((a,i) => { if (months >= a.m) idx = i; });
+  return idx;
+}
+function key(i){ return "ms_" + D[i].key; }
+function render(){
+  const i = +sel.value, a = D[i];
+  let ticks = {};
+  try { ticks = JSON.parse(store.get(key(i)) || "{}"); } catch(e) {}
+  $("listTitle").textContent = "What most children do by " + a.label;
+  $("pAge").textContent = a.label;
+  let html = "", n = 0, done = 0;
+  for (const g of Object.keys(a.groups)){
+    html += '<h3 style="margin-top:14px">' + esc(g === "Movement" ? "Movement / physical" : g === "Social" ? "Social / emotional" : g === "Language" ? "Language / communication" : "Cognitive (learning, thinking, problem-solving)") + '</h3>';
+    a.groups[g].forEach((t,j) => {
+      const id = g + j; n++; if (ticks[id]) done++;
+      html += '<label class="check" style="text-transform:none;letter-spacing:0;font-size:15px;color:var(--fg);margin:0">'
+        + '<input type="checkbox" data-id="' + id + '"' + (ticks[id] ? " checked" : "") + '><span>' + esc(t) + '</span></label>';
+    });
+  }
+  $("list").innerHTML = html;
+  $("count").textContent = done + " of " + n + " ticked";
+  $("count").dataset.done = done; $("count").dataset.total = n;
+  $("fill").style.width = (n ? done/n*100 : 0) + "%";
+  $("list").querySelectorAll("input").forEach(cb => cb.addEventListener("change", () => {
+    ticks[cb.dataset.id] = cb.checked; if (!cb.checked) delete ticks[cb.dataset.id];
+    store.set(key(i), JSON.stringify(ticks)); render();
+  }));
+  store.set("ms_sel", sel.value);
+}
+function fromDob(){
+  const v = $("dob").value; if (!v) return;
+  store.set("ms_dob", v); store.set("ms_last", "dob");
+  const [y,mo,d] = v.split("-").map(Number), dob = new Date(y, mo-1, d), now = new Date();
+  const m = monthsBetween(dob, now);
+  if (m < 0){ $("ageMsg").textContent = "That date is in the future."; return; }
+  sel.value = pickIndex(m);
+  $("ageMsg").textContent = "Age today: " + m + " month" + (m === 1 ? "" : "s") + ". Showing the " + D[+sel.value].label + " list"
+    + (m < 2 ? " (the first list in the CDC set — look ahead)." : ".");
+  $("ageMsg").dataset.months = m;
+  render();
+}
+const qp = new URLSearchParams(location.search).get("m");
+const sdob = store.get("ms_dob"), ssel = store.get("ms_sel");
+if (qp !== null && !isNaN(+qp)){ sel.value = pickIndex(+qp); }
+else {
+  if (sdob) $("dob").value = sdob;
+  if (ssel !== null) sel.value = ssel;
+}
+render();
+if (qp === null && sdob && store.get("ms_last") !== "sel") fromDob();
+sel.addEventListener("change", () => { store.set("ms_last", "sel"); render(); });
+$("dob").addEventListener("change", fromDob);
+$("print").addEventListener("click", () => { $("pDate").textContent = "Printed " + new Date().toLocaleDateString(); window.print(); });
+$("clear").addEventListener("click", () => { store.del(key(+sel.value)); render(); });
+
+</script>
+</body>
+</html>

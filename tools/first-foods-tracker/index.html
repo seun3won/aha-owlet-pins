@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>100 First Foods Checklist — Free Printable Baby First Foods Tracker</title>
+<meta name="description" content="Free 100 first foods checklist for babies starting solids. Tick foods as you try them, see counts by food group and days since the last new food, and print the list. No signup.">
+<link rel="canonical" href="https://seun3won.github.io/aha-owlet-pins/tools/first-foods-tracker/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aha Owlet Tools">
+<meta property="og:title" content="100 First Foods Checklist — Free Printable Tracker">
+<meta property="og:description" content="Tick off first foods as your baby tries them, by food group, with dates. Print it for the fridge. Free.">
+<meta property="og:url" content="https://seun3won.github.io/aha-owlet-pins/tools/first-foods-tracker/">
+<meta property="og:image" content="https://seun3won.github.io/aha-owlet-pins/tools/first-foods-tracker/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1E243C">
+<style>
+  :root{--bg:#1E243C;--card:#262D48;--fg:#F5F2EA;--muted:#9AA3BF;--accent:#E8A87C;--sage:#7D8F74;--line:#39415F;--field:#1A2036;--ok:#9BC59D;--warn:#E8C27C}
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;padding:24px 16px 64px;background:var(--bg);color:var(--fg);
+       font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;overflow-wrap:break-word}
+  .wrap{max-width:640px;margin:0 auto}
+  header{text-align:center;margin-bottom:24px}
+  h1{font-size:26px;margin:0 0 8px;line-height:1.25}
+  h2{font-size:15px;margin:0 0 12px;color:var(--muted);letter-spacing:.03em;text-transform:uppercase}
+  h3{font-size:17px;margin:0 0 6px}
+  .sub{color:var(--muted);font-size:15px;margin:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}
+  label{display:block;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  input,select,textarea{width:100%;max-width:100%;padding:12px;font-size:16px;border-radius:10px;border:1px solid var(--line);
+               background:var(--field);color:var(--fg);font-family:inherit}
+  input[type=checkbox]{width:22px;height:22px;padding:0;margin:0;accent-color:var(--accent);flex:0 0 22px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  .grid>div{min-width:0}
+  .field{margin-bottom:12px}
+  button{width:100%;padding:14px;font-size:16px;font-weight:700;border:0;border-radius:12px;
+         background:var(--accent);color:#1E243C;cursor:pointer;font-family:inherit}
+  button.ghost{background:transparent;color:var(--accent);border:1px solid var(--line);font-weight:600}
+  button.small{width:auto;padding:8px 12px;font-size:14px}
+  button:active{transform:translateY(1px)}
+  .row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+  .row>button{flex:1 1 140px}
+  .big{font-size:30px;font-weight:800;letter-spacing:-.5px;margin:4px 0 2px;color:var(--accent)}
+  .hint{color:var(--muted);font-size:14px;margin:0}
+  .note{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .chip{background:var(--field);border:1px solid var(--line);border-radius:99px;padding:6px 12px;font-size:13px;color:var(--muted)}
+  .chip b{color:var(--fg)}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th{text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);
+     font-weight:600;padding:0 6px 8px 0;border-bottom:1px solid var(--line)}
+  td{padding:10px 6px 10px 0;border-bottom:1px solid rgba(57,65,95,.6);vertical-align:top}
+  .tag{display:inline-block;font-size:12px;border-radius:99px;padding:2px 9px;border:1px solid var(--line);white-space:nowrap}
+  .tag.now{color:#1E243C;background:var(--accent);border-color:var(--accent)}
+  .tag.past{color:var(--fg)}
+  .tag.soon{color:var(--muted)}
+  .check{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid rgba(57,65,95,.6)}
+  .check:last-child{border-bottom:0}
+  .check span{flex:1;min-width:0}
+  .bar{height:8px;background:var(--field);border-radius:99px;overflow:hidden;margin:10px 0 4px}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--accent));width:0;transition:width .4s}
+  .hidden{display:none}
+  .related{font-size:14px;color:var(--muted);text-align:center;margin-top:20px}
+  .related a{color:var(--accent);text-decoration:none}
+  footer{text-align:center;margin-top:24px;font-size:14px;color:var(--muted)}
+  footer a{color:var(--accent);text-decoration:none;font-weight:600}
+  .src{font-size:12px;color:#8D94AB;margin-top:22px;line-height:1.55}
+  .src a{color:#B9BFD3}
+  .src ul{margin:6px 0 0;padding-left:18px}
+  .disc{font-size:12px;color:#8D94AB;margin-top:14px;line-height:1.5}
+  .printonly{display:none}
+  @media print{
+    body{background:#fff;color:#000;padding:0}
+    .noprint{display:none !important}
+    .printonly{display:block}
+    .card{background:#fff;border:1px solid #999;border-radius:0;page-break-inside:avoid;color:#000}
+    h1,h2,h3,.big{color:#000} .sub,.hint,.chip,th,.note{color:#000}
+    .chip{border-color:#999;background:#fff}
+    td{border-bottom:1px solid #bbb}
+    .src,.disc{color:#333}
+    .src a{color:#000}
+    .tag{color:#000 !important;background:#fff !important;border-color:#666 !important}
+    a{color:#000}
+  }
+
+  .food{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(57,65,95,.6);font-size:15px;color:var(--fg);text-transform:none;letter-spacing:0;margin:0}
+  .food:last-child{border-bottom:0}
+  .food span{flex:1;min-width:0}
+  .food small{color:var(--muted);font-size:12px;white-space:nowrap}
+  @media print{
+    #lists{columns:2;column-gap:18px}
+    #lists .card{break-inside:avoid-column;padding:8px;margin-bottom:8px;border:0}
+    .food{padding:3px 0;font-size:12px;color:#000;border-bottom:1px solid #ddd}
+    .food small{color:#000}
+    .food input{width:14px;height:14px;flex:0 0 14px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+
+  <header class="noprint">
+    <h1>100 first foods checklist</h1>
+    <p class="sub">Tick each food the first time your baby tries it. Dates stay on this device only.</p>
+  </header>
+
+  <div class="printonly">
+    <h1 style="font-size:22px;margin:0 0 4px" id="pTitle">100 first foods</h1>
+    <p class="sub" id="pDate"></p>
+  </div>
+
+  <div class="card">
+    <div class="big" id="total">0 / 100</div>
+    <div class="bar noprint"><i id="fill"></i></div>
+    <div class="chips" id="groups"></div>
+    <p class="hint noprint" id="since" style="margin-top:10px"></p>
+  </div>
+
+  <div class="card noprint">
+    <h2>Before you start</h2>
+    <ul style="margin:0;padding-left:20px">
+      <li>Most babies start solids at <b>about 6 months</b>; before 4 months is not recommended.</li>
+      <li>Offer one new single-ingredient food at a time and wait <b>3–5 days</b> between new foods, so you can spot any problems.</li>
+      <li>Common allergens can be introduced alongside other foods. If your baby has <b>severe eczema or an egg allergy</b>, talk to your doctor before peanut.</li>
+      <li><b>No honey before 12 months.</b> Cow's milk as a drink waits until after 12 months.</li>
+      <li>Serve soft textures, cut round foods (grapes, cherries, tomatoes) small, and always watch your baby while they eat.</li>
+    </ul>
+  </div>
+
+  <div id="lists"></div>
+
+  <div class="row noprint">
+    <button class="ghost" id="print">Print the checklist</button>
+    <button class="ghost" id="clear">Clear all ticks</button>
+  </div>
+
+
+  <p class="related noprint">Related free tools: <a href="../formula-calculator/">Formula Calculator</a> &middot; <a href="../feeding-log/">Feeding &amp; Diaper Log</a> &middot; <a href="../teething-chart/">Teething Chart</a></p>
+
+  <footer class="noprint">
+    <a href="../">&larr; More free tools for parents</a> &middot; <a href="../../p/">Parenting answers</a><br><br>
+    Free printables and one-page guides:<br>
+    <a href="https://beacons.ai/ahaowlet?utm_source=tool&amp;utm_medium=web&amp;utm_campaign=firstfoods" target="_blank" rel="noopener">beacons.ai/ahaowlet</a>
+  </footer>
+
+  <div class="src">
+    <b>Where the numbers come from</b>
+    <ul><li><a href="https://www.cdc.gov/infant-toddler-nutrition/foods-and-drinks/when-what-and-how-to-introduce-solid-foods.html" target="_blank" rel="noopener">CDC — When, What, and How to Introduce Solid Foods (about 6 months, 3–5 days between new foods, allergens)</a></li><li><a href="https://www.cdc.gov/infant-toddler-nutrition/foods-and-drinks/foods-and-drinks-to-avoid-or-limit.html" target="_blank" rel="noopener">CDC — Foods and Drinks to Avoid or Limit (no honey before 12 months)</a></li><li><a href="https://www.cdc.gov/infant-toddler-nutrition/foods-and-drinks/choking-hazards.html" target="_blank" rel="noopener">CDC — Choking Hazards</a></li></ul>
+  </div>
+
+  <p class="disc">The food list is a checklist for variety, not a feeding plan, and “100” is a fun target, not a requirement. Prepare every food in a texture that is safe for your baby's stage. This is general information, not medical or nutrition advice — talk to your pediatrician about starting solids, allergies, or any reaction.</p>
+
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const store = {
+  get(k){ try { return localStorage.getItem(k); } catch(e) { return null; } },
+  set(k,v){ try { localStorage.setItem(k,v); } catch(e) {} },
+  del(k){ try { localStorage.removeItem(k); } catch(e) {} }
+};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const F = {"Vegetables": ["Avocado", "Sweet potato", "Carrot", "Butternut squash", "Peas", "Green beans", "Broccoli", "Cauliflower", "Zucchini", "Spinach", "Kale", "Beetroot", "Parsnip", "Potato", "Pumpkin", "Asparagus", "Cucumber", "Bell pepper", "Tomato", "Corn", "Mushroom", "Cabbage", "Brussels sprouts", "Eggplant"], "Fruits": ["Banana", "Apple", "Pear", "Mango", "Peach", "Plum", "Blueberries", "Strawberries", "Raspberries", "Watermelon", "Cantaloupe", "Kiwi", "Orange", "Grapes (quartered)", "Cherries (pitted, cut)", "Papaya", "Pineapple", "Apricot", "Prunes", "Figs", "Pomegranate", "Blackberries"], "Proteins": ["Chicken", "Turkey", "Beef", "Lamb", "Pork", "Salmon", "White fish", "Sardines", "Tuna", "Lentils", "Chickpeas", "Black beans", "Kidney beans", "Tofu", "Hummus", "Liver"], "Grains": ["Infant oat cereal", "Oatmeal", "Rice", "Quinoa", "Pasta", "Bread or toast strips", "Barley", "Couscous", "Millet", "Buckwheat", "Polenta", "Pancakes"], "Dairy": ["Plain yogurt", "Cheese (grated or thin)", "Cottage cheese", "Butter", "Ricotta", "Kefir (plain)"], "Common allergens": ["Egg (well cooked)", "Peanut (thinned butter or powder)", "Tree nut (thinned butter)", "Wheat", "Soy", "Fish", "Shellfish", "Sesame (tahini)", "Cow's milk in cooking"], "Herbs & spices": ["Cinnamon", "Garlic", "Ginger", "Cumin", "Basil", "Mint", "Parsley", "Turmeric", "Oregano", "Dill", "Nutmeg"]};
+
+let tried = {}; try { tried = JSON.parse(store.get("ff_tried") || "{}"); } catch(e) {}
+const pad = n => String(n).padStart(2,"0");
+const today = () => { const d = new Date(); return d.getFullYear() + "-" + pad(d.getMonth()+1) + "-" + pad(d.getDate()); };
+function build(){
+  let h = "";
+  Object.keys(F).forEach((g,gi) => {
+    h += '<div class="card"><h2>' + esc(g) + ' <span id="g' + gi + '"></span></h2>';
+    F[g].forEach(f => {
+      h += '<label class="food"><input type="checkbox" data-f="' + esc(f) + '"><span>' + esc(f) + '</span><small></small></label>';
+    });
+    h += '</div>';
+  });
+  $("lists").innerHTML = h;
+  $("lists").querySelectorAll("input").forEach(cb => cb.addEventListener("change", () => {
+    const f = cb.dataset.f;
+    if (cb.checked) tried[f] = today(); else delete tried[f];
+    store.set("ff_tried", JSON.stringify(tried)); render();
+  }));
+}
+function render(){
+  let n = 0, chips = "";
+  Object.keys(F).forEach((g,gi) => {
+    const c = F[g].filter(f => tried[f]).length; n += c;
+    chips += '<span class="chip">' + esc(g) + ' <b>' + c + '/' + F[g].length + '</b></span>';
+    $("g" + gi).textContent = "· " + c + "/" + F[g].length;
+  });
+  $("lists").querySelectorAll("input").forEach(cb => {
+    const d = tried[cb.dataset.f]; cb.checked = !!d;
+    cb.parentElement.querySelector("small").textContent = d ? new Date(d + "T12:00:00").toLocaleDateString(undefined,{month:"short",day:"numeric"}) : "";
+  });
+  $("total").textContent = n + " / 100 tried"; $("total").dataset.n = n;
+  $("fill").style.width = n + "%";
+  $("groups").innerHTML = chips;
+  const dates = Object.values(tried).sort();
+  if (dates.length){
+    const last = dates[dates.length-1], [y,m,d] = last.split("-").map(Number);
+    const t = new Date(); t.setHours(0,0,0,0);
+    const days = Math.round((t - new Date(y,m-1,d)) / 86400000);
+    $("since").textContent = "Last new food: " + (days === 0 ? "today" : days === 1 ? "yesterday" : days + " days ago") + ".";
+    $("since").dataset.days = days;
+  } else { $("since").textContent = "Nothing ticked yet."; $("since").dataset.days = ""; }
+}
+build(); render();
+$("print").addEventListener("click", () => { $("pDate").textContent = "Printed " + new Date().toLocaleDateString(); window.print(); });
+$("clear").addEventListener("click", () => { if (confirm("Clear all ticks?")) { tried = {}; store.del("ff_tried"); render(); } });
+
+</script>
+</body>
+</html>

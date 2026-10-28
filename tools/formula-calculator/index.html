@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baby Formula Calculator by Weight — How Much Formula per Day and per Bottle</title>
+<meta name="description" content="Free baby formula calculator. Enter weight and feeds per day to see the AAP and NHS rule-of-thumb ranges per day and per bottle, in ounces and ml. No signup.">
+<link rel="canonical" href="https://seun3won.github.io/aha-owlet-pins/tools/formula-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aha Owlet Tools">
+<meta property="og:title" content="Baby Formula Calculator — How Much per Day and per Bottle">
+<meta property="og:description" content="Weight in, AAP and NHS rule-of-thumb ranges out, in oz and ml. Free, no signup.">
+<meta property="og:url" content="https://seun3won.github.io/aha-owlet-pins/tools/formula-calculator/">
+<meta property="og:image" content="https://seun3won.github.io/aha-owlet-pins/tools/formula-calculator/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1E243C">
+<style>
+  :root{--bg:#1E243C;--card:#262D48;--fg:#F5F2EA;--muted:#9AA3BF;--accent:#E8A87C;--sage:#7D8F74;--line:#39415F;--field:#1A2036;--ok:#9BC59D;--warn:#E8C27C}
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;padding:24px 16px 64px;background:var(--bg);color:var(--fg);
+       font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;overflow-wrap:break-word}
+  .wrap{max-width:640px;margin:0 auto}
+  header{text-align:center;margin-bottom:24px}
+  h1{font-size:26px;margin:0 0 8px;line-height:1.25}
+  h2{font-size:15px;margin:0 0 12px;color:var(--muted);letter-spacing:.03em;text-transform:uppercase}
+  h3{font-size:17px;margin:0 0 6px}
+  .sub{color:var(--muted);font-size:15px;margin:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}
+  label{display:block;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  input,select,textarea{width:100%;max-width:100%;padding:12px;font-size:16px;border-radius:10px;border:1px solid var(--line);
+               background:var(--field);color:var(--fg);font-family:inherit}
+  input[type=checkbox]{width:22px;height:22px;padding:0;margin:0;accent-color:var(--accent);flex:0 0 22px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  .grid>div{min-width:0}
+  .field{margin-bottom:12px}
+  button{width:100%;padding:14px;font-size:16px;font-weight:700;border:0;border-radius:12px;
+         background:var(--accent);color:#1E243C;cursor:pointer;font-family:inherit}
+  button.ghost{background:transparent;color:var(--accent);border:1px solid var(--line);font-weight:600}
+  button.small{width:auto;padding:8px 12px;font-size:14px}
+  button:active{transform:translateY(1px)}
+  .row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+  .row>button{flex:1 1 140px}
+  .big{font-size:30px;font-weight:800;letter-spacing:-.5px;margin:4px 0 2px;color:var(--accent)}
+  .hint{color:var(--muted);font-size:14px;margin:0}
+  .note{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .chip{background:var(--field);border:1px solid var(--line);border-radius:99px;padding:6px 12px;font-size:13px;color:var(--muted)}
+  .chip b{color:var(--fg)}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th{text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);
+     font-weight:600;padding:0 6px 8px 0;border-bottom:1px solid var(--line)}
+  td{padding:10px 6px 10px 0;border-bottom:1px solid rgba(57,65,95,.6);vertical-align:top}
+  .tag{display:inline-block;font-size:12px;border-radius:99px;padding:2px 9px;border:1px solid var(--line);white-space:nowrap}
+  .tag.now{color:#1E243C;background:var(--accent);border-color:var(--accent)}
+  .tag.past{color:var(--fg)}
+  .tag.soon{color:var(--muted)}
+  .check{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid rgba(57,65,95,.6)}
+  .check:last-child{border-bottom:0}
+  .check span{flex:1;min-width:0}
+  .bar{height:8px;background:var(--field);border-radius:99px;overflow:hidden;margin:10px 0 4px}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--accent));width:0;transition:width .4s}
+  .hidden{display:none}
+  .related{font-size:14px;color:var(--muted);text-align:center;margin-top:20px}
+  .related a{color:var(--accent);text-decoration:none}
+  footer{text-align:center;margin-top:24px;font-size:14px;color:var(--muted)}
+  footer a{color:var(--accent);text-decoration:none;font-weight:600}
+  .src{font-size:12px;color:#8D94AB;margin-top:22px;line-height:1.55}
+  .src a{color:#B9BFD3}
+  .src ul{margin:6px 0 0;padding-left:18px}
+  .disc{font-size:12px;color:#8D94AB;margin-top:14px;line-height:1.5}
+  .printonly{display:none}
+  @media print{
+    body{background:#fff;color:#000;padding:0}
+    .noprint{display:none !important}
+    .printonly{display:block}
+    .card{background:#fff;border:1px solid #999;border-radius:0;page-break-inside:avoid;color:#000}
+    h1,h2,h3,.big{color:#000} .sub,.hint,.chip,th,.note{color:#000}
+    .chip{border-color:#999;background:#fff}
+    td{border-bottom:1px solid #bbb}
+    .src,.disc{color:#333}
+    .src a{color:#000}
+    .tag{color:#000 !important;background:#fff !important;border-color:#666 !important}
+    a{color:#000}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+
+  <header>
+    <h1>How much formula does my baby need?</h1>
+    <p class="sub">Weight in, rule-of-thumb ranges out. Nothing is sent to a server.</p>
+  </header>
+
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="w">Baby's weight</label>
+        <input type="number" id="w" inputmode="decimal" min="1" max="40" step="0.1" placeholder="e.g. 10">
+      </div>
+      <div>
+        <label for="unit">Unit</label>
+        <select id="unit"><option value="lb">pounds (lb)</option><option value="kg">kilograms (kg)</option></select>
+      </div>
+    </div>
+    <div class="grid">
+      <div>
+        <label for="age">Age</label>
+        <select id="age">
+          <option value="w0">First week</option>
+          <option value="m0" selected>1 wk – 6 mo</option>
+          <option value="m6">6 – 12 mo</option>
+        </select>
+      </div>
+      <div>
+        <label for="feeds">Feeds per day</label>
+        <input type="number" id="feeds" inputmode="numeric" min="3" max="12" step="1" value="7">
+      </div>
+    </div>
+    <button id="go">Show the ranges</button>
+  </div>
+
+  <div class="card hidden" id="out">
+    <div id="res"></div>
+    <p class="note" id="note"></p>
+  </div>
+
+
+  <p class="related noprint">Related free tools: <a href="../feeding-log/">Feeding &amp; Diaper Log</a> &middot; <a href="../first-foods-tracker/">First Foods Checklist</a> &middot; <a href="../adjusted-age-calculator/">Adjusted Age Calculator</a></p>
+
+  <footer class="noprint">
+    <a href="../">&larr; More free tools for parents</a> &middot; <a href="../../p/">Parenting answers</a><br><br>
+    Free printables and one-page guides:<br>
+    <a href="https://beacons.ai/ahaowlet?utm_source=tool&amp;utm_medium=web&amp;utm_campaign=formulacalc" target="_blank" rel="noopener">beacons.ai/ahaowlet</a>
+  </footer>
+
+  <div class="src">
+    <b>Where the numbers come from</b>
+    <ul><li><a href="https://www.healthychildren.org/English/ages-stages/baby/formula-feeding/Pages/Amount-and-Schedule-of-Formula-Feedings.aspx" target="_blank" rel="noopener">AAP / HealthyChildren.org — Amount and Schedule of Formula Feedings</a></li><li><a href="https://www.healthychildren.org/english/tips-tools/ask-the-pediatrician/pages/how-much-formula-does-my-baby-need.aspx" target="_blank" rel="noopener">AAP / HealthyChildren.org — How much formula does my baby need?</a></li><li><a href="https://111.wales.nhs.uk/livewell/pregnancy/bottleformulacommonquest/" target="_blank" rel="noopener">NHS 111 Wales — How much formula does my baby need?</a></li></ul>
+  </div>
+
+  <p class="disc">This calculator does simple arithmetic on published rules of thumb. It is general information, not medical or feeding advice, and it does not apply to premature babies, babies with medical conditions, or special formulas. Always make up formula exactly as the label says. Talk to your pediatrician or health visitor about how much your baby should drink.</p>
+
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const store = {
+  get(k){ try { return localStorage.getItem(k); } catch(e) { return null; } },
+  set(k,v){ try { localStorage.setItem(k,v); } catch(e) {} },
+  del(k){ try { localStorage.removeItem(k); } catch(e) {} }
+};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+const OZ = 29.5735, LB = 0.45359237;
+const r5 = ml => Math.round(ml/5)*5;
+const r1 = x => Math.round(x*10)/10;
+const sw = store.get("fc_w"), su = store.get("fc_u"), sf = store.get("fc_f");
+if (sw) $("w").value = sw;
+if (su) $("unit").value = su;
+if (sf) $("feeds").value = sf;
+
+function calc(){
+  const w = parseFloat($("w").value), unit = $("unit").value, age = $("age").value;
+  let feeds = Math.round(parseFloat($("feeds").value));
+  if (!(feeds >= 3 && feeds <= 12)) feeds = 7;
+  $("feeds").value = feeds;
+  store.set("fc_u", unit); store.set("fc_f", feeds);
+  const out = $("res"); let note = "";
+  if (age === "w0"){
+    out.innerHTML = '<p class="hint">First week</p><div class="big">About 1–2 oz per feed</div>'
+      + '<p class="hint">30–60 ml per feed. Newborn stomachs are small, and amounts rise over the first weeks.</p>';
+    note = "The AAP describes first-week bottles as no more than about 1–2 oz. Weight-based daily totals below apply from about the end of week one.";
+  } else if (age === "m6"){
+    out.innerHTML = '<p class="hint">6 – 12 months</p><div class="big">About 6–8 oz per feed</div>'
+      + '<p class="hint">180–240 ml, about 4–5 times in 24 hours, alongside solid foods.</p>';
+    note = "Once solids start, milk amounts depend on how much food your baby eats, so a weight-based total stops being useful.";
+  } else {
+    if (!(w > 0)){ $("w").focus(); return; }
+    store.set("fc_w", $("w").value);
+    const lb = unit === "lb" ? w : w / LB, kg = unit === "kg" ? w : w * LB;
+    if (kg < 1.5 || kg > 15){
+      out.innerHTML = '<p class="hint">Check the weight</p><div class="big">' + esc(w) + ' ' + unit + '?</div>'
+        + '<p class="hint">That is outside the range this rule of thumb is meant for. Please ask your pediatrician.</p>';
+      $("note").textContent = ""; $("out").classList.remove("hidden"); return;
+    }
+    let aapOz = 2.5 * lb, capped = false;
+    if (aapOz > 32){ aapOz = 32; capped = true; }
+    const nhsLo = 150 * kg, nhsHi = 200 * kg;
+    out.innerHTML =
+      '<p class="hint">AAP rule of thumb (2.5 oz per lb per day)</p>'
+      + '<div class="big" id="aapDay">' + r1(aapOz) + ' oz a day</div>'
+      + '<p class="hint" id="aapFeed">' + r5(aapOz*OZ) + ' ml a day &middot; about <b>' + r1(aapOz/feeds) + ' oz (' + r5(aapOz*OZ/feeds) + ' ml)</b> per feed at ' + feeds + ' feeds</p>'
+      + (capped ? '<p class="hint" id="cap">Capped at 32 oz: the AAP says most babies do not need more than about 32 oz in 24 hours.</p>' : '')
+      + '<div style="height:14px"></div>'
+      + '<p class="hint">NHS range (150–200 ml per kg per day)</p>'
+      + '<div class="big" id="nhsDay">' + r5(nhsLo) + '–' + r5(nhsHi) + ' ml a day</div>'
+      + '<p class="hint" id="nhsFeed">' + r1(nhsLo/OZ) + '–' + r1(nhsHi/OZ) + ' oz a day &middot; about <b>' + r5(nhsLo/feeds) + '–' + r5(nhsHi/feeds) + ' ml</b> per feed at ' + feeds + ' feeds</p>'
+      + '<div class="chips"><span class="chip">Weight <b>' + r1(lb) + ' lb</b> / <b>' + r1(kg) + ' kg</b></span></div>';
+    note = "These are averages from two health services, so they do not match exactly — that gap is normal. Babies regulate their own intake: some days more, some days less. Follow hunger and fullness cues, and talk to your pediatrician if your baby regularly wants much more or much less.";
+  }
+  $("note").textContent = note;
+  $("out").classList.remove("hidden");
+}
+$("go").addEventListener("click", calc);
+["unit","age","feeds"].forEach(id => $(id).addEventListener("change", () => { if(!$("out").classList.contains("hidden")) calc(); }));
+
+</script>
+</body>
+</html>
